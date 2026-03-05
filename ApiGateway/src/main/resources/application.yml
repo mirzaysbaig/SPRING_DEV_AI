@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+          routes:
+            - id: product-service
+              uri: http://localhost:8081 #base url
+              predicates:
+                - Path=/api/**      #this is the comndition to check for rerouting
+
+server:
+  port: 8079
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  # URL of Eureka Server
+    register-with-eureka: true # Register this service with Eureka
+    fetch-registry: true     # Fe
+
+#api gaateway
+
+
+
